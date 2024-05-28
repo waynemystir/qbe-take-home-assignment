@@ -33,3 +33,22 @@ Or this:
 bash post-get-factors.sh
 ```
 You can also experiment with the file `data-wo-factors.json` to verify that the API returns appropriate errors.
+
+
+## Run the tests
+From the root of this repository, run this:
+```
+. .venv/bin/activate
+coverage run -m pytest
+```
+
+To view the coverage of the tests:
+```
+coverage report
+```
+
+To view detailed coverage of the tests:
+```
+coverage html  # open htmlcov/index.html in a browser
+```
+You should achieve 99% test coverage.
