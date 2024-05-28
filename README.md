@@ -82,8 +82,14 @@ git checkout -b feature/add-tests # create feature branch from main
 
 I typically like to commit often throughout the day for a couple reasons. I can more easily track my progress and it makes `git diff` much smaller and easier to see where I might have made a recent mistake or created a bug (using TDD).
 
+I used [black](https://pypi.org/project/black/) for code formatting with this command:
+```
+black .
+```
+
 To commit the latest from a local feature branch to the origin:
 ```
+black .
 git add .
 git commit -m "write a short message to describe what you're committing"
 git push origin HEAD
