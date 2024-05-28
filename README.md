@@ -8,7 +8,7 @@
 
 To install Redis, follow [these steps](INSTALL_REDIS.md).
 
-NOTE to M.M.: I actually developed this repository while working on my Chromebook because I'm not at home right now (where my Ubuntu desktop is). The developer mode uses a container with an OS it calls `penquin`. It seems very, very close to Ubuntu. I will be home in a couple days and will verify that the app and tests work on Ubuntu then. I don't expect any problems.
+NOTE to M.M.: I actually developed this repository while working on my Chromebook because I'm not at home right now (where my Ubuntu desktop is). The developer mode on Chromebook uses a container that it calls `penquin`. It's Debian and seems very, very close to Ubuntu. The app and pytests work as expected on my Chromebook. I will be home in a couple days and will verify that the app and tests work on Ubuntu then. I don't expect any problems. I greatly appreciate you extending the deadline. I'm confident that this repository is ready for your evaluation and wanted to submit it ASAP.
 
 ## Setup
 Clone this repository. Then, from the root of this local repository, run this:
