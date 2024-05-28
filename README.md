@@ -41,17 +41,18 @@ From the root of this repository, run this:
 . .venv/bin/activate
 coverage run -m pytest
 ```
+You should see 19 tests passed successfully and no failures.
 
 To view the coverage of the tests:
 ```
 coverage report
 ```
+You should achieve 99% test coverage.
 
 To view detailed coverage of the tests:
 ```
 coverage html  # open htmlcov/index.html in a browser
 ```
-You should achieve 99% test coverage.
 
 
 ## Git commands and workflow
@@ -62,9 +63,30 @@ We implemented trunk-based development:
 - Created feature branches for each part of the assignment
 - Merged small, frequent updates to main
 - Merged to main via Pull Requests (PRs)
+- For PRs, I typically like to follow [these best practices](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/getting-started/best-practices-for-pull-requests).
 
 To create the repository and initialize it, I selected `New` in GitHub, included a basic README, and finished the repository creation page. Once the remote repository was created in GitHub, I got the origin URL by selecting `Code` -> `SSH` -> and the copy icon. I then cloned this new repository to my local computer with this command:
 ```
 git clone git@github.com:waynemystir/qbe-take-home-assignment.git
 ```
 NOTE: using the SSH option works because I have previously [created an SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) and then [added it to my GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
+
+To create a feature branch, I started at the main branch (at the root of the local repository) and ran commands such as this:
+```
+git status # make sure you're on the main branch
+git pull # make sure you have the latest
+git checkout -b feature/add-tests # create feature branch from main
+```
+
+I typically like to commit often throughout the day for a couple reasons. I can more easily track my progress and it makes `git diff` much smaller and easier to see where I might have made a recent mistake or created a bug (using TDD).
+
+To commit the latest from a local feature branch to the origin:
+```
+git add .
+git commit -m "write a short message to describe what you're committing"
+git push origin HEAD
+```
+
+After the first commit for a new feature branch, I go to this repository in GitHub and create a Pull Request for that branch. GitHub makes this easy because it automatically detects that a branch has new commits. When creating the PR, I add a meaningful title and short description. I will typically also add the reviewers, assignees, and labels at this time. I then continue adding and pushing commits until I am done with the PR.
+
+NOTE: Ordinarily I would delete the feature branches when they're merged to `main`. But I didn't do that here in order to keep the history for M.M. to review.
