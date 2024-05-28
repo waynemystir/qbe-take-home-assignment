@@ -1,6 +1,4 @@
-# qbe-take-home-assignment-03
-
-## System requirementes
+## System requirements
 
 - Ubuntu 20.04 or later
 - Python 3.8 or later
@@ -8,7 +6,7 @@
 
 To install Redis, follow [these steps](INSTALL_REDIS.md).
 
-NOTE to M.M.: I actually developed this repository while working on my Chromebook because I'm not at home right now (where my Ubuntu desktop is). The developer mode on Chromebook uses a container that it calls `penquin`. It's Debian and seems very, very close to Ubuntu. The app and pytests work as expected on my Chromebook. I will be home in a couple days and will verify that the app and tests work on Ubuntu then. I don't expect any problems. I greatly appreciate you extending the deadline. I'm confident that this repository is ready for your evaluation and wanted to submit it ASAP.
+NOTE to M.M.: I actually developed this repository while working on my Chromebook because I'm not at home right now (where my Ubuntu desktop is). The developer mode on Chromebook uses a container that it calls `penguin`. It's Debian and seems very, very close to Ubuntu. The app and pytests work as expected on my Chromebook. I will be home in a couple days and will verify that the app and tests work on Ubuntu then. I don't expect any problems. I greatly appreciate you extending the deadline. I'm confident that this repository is ready for your evaluation and wanted to submit it ASAP.
 
 ## Setup
 Clone this repository. Then, from the root of this local repository, run this:
@@ -59,12 +57,11 @@ coverage html  # open htmlcov/index.html in a browser
 
 ## Git commands and workflow
 
-We implemented trunk-based development:
+I implemented trunk-based development:
 - Created a new repository in GitHub
 - Created a main branch for the base code
 - Created feature branches for each part of the assignment
-- Merged small, frequent updates to main
-- Merged to main via Pull Requests (PRs)
+- Merged small, frequent Pull Requests (PRs) to main
 - For PRs, I typically like to follow [these best practices](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/getting-started/best-practices-for-pull-requests).
 
 To create the repository and initialize it, I selected `New` in GitHub, included a basic README, and finished the repository creation page. Once the remote repository was created in GitHub, I got the origin URL by selecting `Code` -> `SSH` -> and the copy icon. I then cloned this new repository to my local computer with this command:
@@ -98,3 +95,5 @@ git push origin HEAD
 After the first commit for a new feature branch, I go to this repository in GitHub and create a Pull Request for that branch. GitHub makes this easy because it automatically detects that a branch has new commits. When creating the PR, I add a meaningful title and short description. I will typically also add the reviewers, assignees, and labels at this time. I then continue adding and pushing commits until I am done with the PR.
 
 NOTE: Ordinarily I would delete the feature branches when they're merged to `main`. But I didn't do that here in order to keep the history for M.M. to review.
+
+NOTE: Ordinarily I would also add a ruleset to protect the `main` branch. But I didn't do that here since I'm both the coder and reviewer.
