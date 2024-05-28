@@ -95,3 +95,5 @@ git push origin HEAD
 After the first commit for a new feature branch, I go to this repository in GitHub and create a Pull Request for that branch. GitHub makes this easy because it automatically detects that a branch has new commits. When creating the PR, I add a meaningful title and short description. I will typically also add the reviewers, assignees, and labels at this time. I then continue adding and pushing commits until I am done with the PR.
 
 NOTE: Ordinarily I would delete the feature branches when they're merged to `main`. But I didn't do that here in order to keep the history for M.M. to review.
+
+NOTE: Ordinarily I would also add a ruleset to protect the `main` branch. But I didn't do that here since I'm both the coder and reviewer.
