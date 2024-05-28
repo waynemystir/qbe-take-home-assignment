@@ -57,12 +57,11 @@ coverage html  # open htmlcov/index.html in a browser
 
 ## Git commands and workflow
 
-We implemented trunk-based development:
+I implemented trunk-based development:
 - Created a new repository in GitHub
 - Created a main branch for the base code
 - Created feature branches for each part of the assignment
-- Merged small, frequent updates to main
-- Merged to main via Pull Requests (PRs)
+- Merged small, frequent Pull Requests (PRs) to main
 - For PRs, I typically like to follow [these best practices](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/getting-started/best-practices-for-pull-requests).
 
 To create the repository and initialize it, I selected `New` in GitHub, included a basic README, and finished the repository creation page. Once the remote repository was created in GitHub, I got the origin URL by selecting `Code` -> `SSH` -> and the copy icon. I then cloned this new repository to my local computer with this command:
