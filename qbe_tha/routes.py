@@ -10,7 +10,6 @@ bp = Blueprint("api", __name__)
 @bp.route("/validate", methods=["POST"])
 def validate():
     req_json = request.get_json()
-    print(f"EEE:{req_json=}")
     if not isinstance(req_json, dict):
         return abort(400, description="malformed request data")
     req_data = req_json.get("data", None)
@@ -45,7 +44,6 @@ def validate():
 @bp.route("/get_factors", methods=["POST"])
 def get_factors():
     req_json = request.get_json()
-    print(f"QQQ:{req_json=}")
     if not isinstance(req_json, dict):
         return abort(400, description="malformed request data")
     req_data = req_json.get("data", None)
