@@ -40,3 +40,32 @@ def validate():
         rj["valid"] = False
 
     return jsonify({"is_valid": is_valid, "results": req_data})
+
+
+@bp.route("/get_factors", methods=["POST"])
+def get_factors():
+    req_json = request.get_json()
+    print(f"QQQ:{req_json=}")
+    if not isinstance(req_json, dict):
+        return abort(400, description="malformed request data")
+    req_data = req_json.get("data", None)
+    if not isinstance(req_data, list):
+        return abort(400, description="malformed request data")
+
+    for rj in req_data:
+        if not isinstance(rj, dict):
+            return abort(404, description="malformed request data")
+        var_name = rj.get("var_name", None)
+        category = rj.get("category", None)
+        if not isinstance(var_name, str):
+            return abort(404, description="missing var_name")
+        if not isinstance(category, str):
+            return abort(404, description="missing category")
+        vnc = var_name + category
+        exists = redis_store.exists(vnc)
+        if not exists:
+            return abort(404, description="invalid var_name or category")
+        factor = float(redis_store.get(vnc))
+        rj["factor"] = factor
+
+    return jsonify({"results": req_data})
