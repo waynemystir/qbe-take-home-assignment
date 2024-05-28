@@ -1,0 +1,5 @@
+flask
+flask-redis
+pytest
+coverage
+black
