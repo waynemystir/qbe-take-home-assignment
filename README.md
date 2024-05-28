@@ -8,6 +8,8 @@
 
 To install Redis, follow [these steps](INSTALL_REDIS.md).
 
+NOTE to M.M.: I actually developed this repository while working on my Chromebook because I'm not at home right now (where my Ubuntu desktop is). The developer mode uses a container with an OS it calls `penquin`. It seems very, very close to Ubuntu. I will be home in a couple days and will verify that the app and tests work on Ubuntu then. I don't expect any problems.
+
 ## Setup
 Clone this repository. Then, from the root of this local repository, run this:
 ```
