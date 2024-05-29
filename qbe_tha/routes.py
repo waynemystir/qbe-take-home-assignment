@@ -7,17 +7,14 @@ from .redis_client import redis_store
 bp = Blueprint("api", __name__)
 
 
-def get_req_data():
+def common_req_data_loop(ending):
     req_json = request.get_json()
     if not isinstance(req_json, dict):
         abort(400, description="malformed request data")
     req_data = req_json.get("data", None)
     if not isinstance(req_data, list):
         abort(400, description="malformed request data")
-    return req_data
 
-
-def common_req_data_loop(req_data, ending):
     for rj in req_data:
         if not isinstance(rj, dict):
             abort(404, description="malformed request data")
@@ -31,10 +28,11 @@ def common_req_data_loop(req_data, ending):
         exists = redis_store.exists(vnc)
         ending(exists, rj, vnc)
 
+    return req_data
+
 
 @bp.route("/validate", methods=["POST"])
 def validate():
-    req_data = get_req_data()
     is_valid = True
 
     def val_ending(exists, rj, vnc):
@@ -49,13 +47,12 @@ def validate():
         is_valid = False
         rj["valid"] = False
 
-    common_req_data_loop(req_data, val_ending)
+    req_data = common_req_data_loop(val_ending)
     return jsonify({"is_valid": is_valid, "results": req_data})
 
 
 @bp.route("/get_factors", methods=["POST"])
 def get_factors():
-    req_data = get_req_data()
 
     def gf_ending(exists, rj, vnc):
         if not exists:
@@ -63,5 +60,5 @@ def get_factors():
         factor = float(redis_store.get(vnc))
         rj["factor"] = factor
 
-    common_req_data_loop(req_data, gf_ending)
+    req_data = common_req_data_loop(gf_ending)
     return jsonify({"results": req_data})
