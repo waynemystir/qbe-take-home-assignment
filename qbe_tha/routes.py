@@ -11,21 +11,21 @@ bp = Blueprint("api", __name__)
 def validate():
     req_json = request.get_json()
     if not isinstance(req_json, dict):
-        return abort(400, description="malformed request data")
+        abort(400, description="malformed request data")
     req_data = req_json.get("data", None)
     if not isinstance(req_data, list):
-        return abort(400, description="malformed request data")
+        abort(400, description="malformed request data")
 
     is_valid = True
     for rj in req_data:
         if not isinstance(rj, dict):
-            return abort(404, description="malformed request data")
+            abort(404, description="malformed request data")
         var_name = rj.get("var_name", None)
         category = rj.get("category", None)
         if not isinstance(var_name, str):
-            return abort(404, description="missing var_name")
+            abort(404, description="missing var_name")
         if not isinstance(category, str):
-            return abort(404, description="missing category")
+            abort(404, description="missing category")
         vnc = var_name + category
         exists = redis_store.exists(vnc)
         # if exists, then it must be that var_name is in {"country", "age_group"} and
@@ -45,24 +45,24 @@ def validate():
 def get_factors():
     req_json = request.get_json()
     if not isinstance(req_json, dict):
-        return abort(400, description="malformed request data")
+        abort(400, description="malformed request data")
     req_data = req_json.get("data", None)
     if not isinstance(req_data, list):
-        return abort(400, description="malformed request data")
+        abort(400, description="malformed request data")
 
     for rj in req_data:
         if not isinstance(rj, dict):
-            return abort(404, description="malformed request data")
+            abort(404, description="malformed request data")
         var_name = rj.get("var_name", None)
         category = rj.get("category", None)
         if not isinstance(var_name, str):
-            return abort(404, description="missing var_name")
+            abort(404, description="missing var_name")
         if not isinstance(category, str):
-            return abort(404, description="missing category")
+            abort(404, description="missing category")
         vnc = var_name + category
         exists = redis_store.exists(vnc)
         if not exists:
-            return abort(404, description="invalid var_name or category")
+            abort(404, description="invalid var_name or category")
         factor = float(redis_store.get(vnc))
         rj["factor"] = factor
 
