@@ -1,3 +1,5 @@
+""" Implement Flask create_app """
+
 import json
 
 from flask import Flask
@@ -8,6 +10,9 @@ from .routes import bp
 
 
 def create_app(test_config=None):
+    """
+    Create the Flask app, initialize and register components, and load the data.json file to Redis
+    """
     app = Flask(__name__)
     app.config.from_object(Config)
 

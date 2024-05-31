@@ -1,6 +1,4 @@
-"""
-Pytests to test the functionality, robustness, and error handling for the API.
-"""
+"""Pytests to test the functionality, robustness, and error handling for the API."""
 
 
 def test_validate_success(client, src_data_wo_factors):
@@ -327,7 +325,8 @@ def test_get_factors_invalid_00(client, src_data_wo_factors):
     - client: The test client used to make HTTP requests.
     - src_data_wo_factors: Source data without factors.
 
-    Asserts that the response status is 404 and the error message indicates invalid var_name or category.
+    Asserts that the response status is 404 and the error message indicates invalid var_name or
+    category.
     """
     rj_data = src_data_wo_factors["data"]
     rj_data.append({"var_name": "wrong", "category": "UK"})
@@ -347,7 +346,8 @@ def test_get_factors_invalid_01(client, src_data_wo_factors):
     - client: The test client used to make HTTP requests.
     - src_data_wo_factors: Source data without factors.
 
-    Asserts that the response status is 404 and the error message indicates invalid var_name or category.
+    Asserts that the response status is 404 and the error message indicates invalid var_name or
+    category.
     """
     rj_data = src_data_wo_factors["data"]
     r1 = rj_data[1]

@@ -1,3 +1,5 @@
+"""Define and implement the pytest fixtures needed by the tests"""
+
 import json
 
 import pytest

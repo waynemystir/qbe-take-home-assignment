@@ -50,12 +50,14 @@ def validate():
     """
     API endpoint to validate the existence of variable names and categories.
 
-    Processes the request data to check if each variable name and category exists in the Redis store.
+    Processes the request data to check if each variable name and category exists in the Redis
+    store.
     Returns a JSON response indicating whether all entries are valid and includes the validation 
     results for each item.
 
     Returns:
-    - JSON response with keys "is_valid" (boolean) and "results" (list of request data with validation status).
+    - JSON response with keys "is_valid" (boolean) and "results" (list of request data with
+    validation status).
     """
     is_valid = True
 
