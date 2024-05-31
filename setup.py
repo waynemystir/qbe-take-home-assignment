@@ -1,3 +1,11 @@
+"""
+This module sets up the package configuration for the project using setuptools.
+
+The setup script reads the required dependencies from the requirements.txt file and
+configures the package metadata including name, version, packages, author information,
+and Python version requirement.
+"""
+
 from setuptools import find_packages, setup
 
 with open("requirements.txt") as f:

@@ -1,3 +1,5 @@
+"""Pytest for the Flask app factory"""
+
 from qbe_tha.app import create_app
 
 
