@@ -84,6 +84,11 @@ I used [black](https://pypi.org/project/black/) for code formatting with this co
 black .
 ```
 
+I used [pylint](https://pypi.org/project/pylint/) for the code analyser:
+```
+pylint --disable=C0111,W1514 *
+```
+
 To commit the latest from a local feature branch to the origin:
 ```
 black .
