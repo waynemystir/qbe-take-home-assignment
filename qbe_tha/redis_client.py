@@ -6,4 +6,7 @@ redis_store = FlaskRedis()
 
 
 def init_redis(app):
+    """
+    Initialize the Flask app with the Redis store
+    """
     redis_store.init_app(app)

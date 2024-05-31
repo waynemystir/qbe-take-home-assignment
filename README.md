@@ -86,7 +86,7 @@ black .
 
 I used [pylint](https://pypi.org/project/pylint/) for the code analyser:
 ```
-pylint --disable=C0111,W1514 *
+pylint --disable=W1514 */*.py
 ```
 
 To commit the latest from a local feature branch to the origin:
