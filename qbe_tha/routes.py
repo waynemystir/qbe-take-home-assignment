@@ -1,8 +1,5 @@
-import json
-
 from flask import Blueprint, request, jsonify, abort
 from .redis_client import redis_store
-
 
 bp = Blueprint("api", __name__)
 

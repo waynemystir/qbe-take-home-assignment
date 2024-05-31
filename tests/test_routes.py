@@ -1,6 +1,3 @@
-import json
-
-
 def test_validate_success(client, src_data_wo_factors):
     rj_data = src_data_wo_factors["data"]
     response = client.post(
